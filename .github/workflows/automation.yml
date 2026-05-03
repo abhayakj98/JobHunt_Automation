@@ -1,9 +1,9 @@
-﻿name: Scheduled Automation
+name: Scheduled Automation
 
 on:
   schedule:
-    # Runs at 08:00 UTC every day
-    - cron: '0 8 * * *'
+    # Runs at 03:00 IST (21:30 UTC) every day
+    - cron: '30 21 * * *'
   workflow_dispatch: # Allows you to run it manually
 
 jobs:
@@ -24,9 +24,8 @@ jobs:
         
       - name: Run Job Automation
         env:
-          # You will need to set these in your GitHub Repo Settings > Secrets
-          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
+          GEMINI_API_KEY: "AIzaSyCO3WxsmYiAMDWxUtCE_r8eM9FK8fKSQV8"
+        run: node generate-jobs-excel.mjs
           # Change this to whatever command runs your main daily job hunt automation
           # For example: node daily-routine.mjs or npm run scan
-          node scan.mjs
+        
