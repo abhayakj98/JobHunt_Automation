@@ -1,0 +1,32 @@
+﻿name: Scheduled Automation
+
+on:
+  schedule:
+    # Runs at 08:00 UTC every day
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run Job Automation
+        env:
+          # You will need to set these in your GitHub Repo Settings > Secrets
+          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          # Change this to whatever command runs your main daily job hunt automation
+          # For example: node daily-routine.mjs or npm run scan
+          node scan.mjs
