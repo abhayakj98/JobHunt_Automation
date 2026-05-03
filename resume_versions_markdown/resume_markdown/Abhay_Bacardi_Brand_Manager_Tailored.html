@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhay Kumar Jain - Bacardi Tailored Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --page-width: 794px;
+      --page-height: 1123px;
+      --header-blue-1: #1e95d0;
+      --header-blue-2: #1276b5;
+      --accent: #b85b14;
+      --text: #111111;
+      --muted: #334155;
+      --bar: #dfe8f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f5f7;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+    }
+
+    .page {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      margin: 0 auto;
+      background: #ffffff;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.95fr;
+      gap: 20px;
+      padding: 18px 34px 18px 36px;
+      color: #ffffff;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,0.05) 0,
+          rgba(255,255,255,0.05) 2px,
+          rgba(255,255,255,0.01) 2px,
+          rgba(255,255,255,0.01) 6px
+        ),
+        linear-gradient(90deg, var(--header-blue-1), var(--header-blue-2));
+    }
+
+    .name {
+      margin: 0 0 8px 0;
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      font-weight: 800;
+    }
+
+    .tagline {
+      margin: 6px 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .contact {
+      align-self: center;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,0.75);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .contact div {
+      white-space: nowrap;
+    }
+
+    .contact .label {
+      display: inline-block;
+      width: 20px;
+      font-weight: 800;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 14px 36px 28px 36px;
+      font-size: 10px;
+      line-height: 1.34;
+    }
+
+    .section {
+      margin-top: 8px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .section-rule {
+      height: 2px;
+      background: var(--accent);
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .summary {
+      margin: 0 0 12px 0;
+      font-size: 10px;
+      text-align: left;
+    }
+
+    .summary strong {
+      font-weight: 800;
+    }
+
+    .role-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      background: var(--bar);
+      padding: 3px 4px;
+      margin: 6px 0 5px 0;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .subhead {
+      margin: 6px 0 3px 0;
+      font-size: 9.7px;
+      font-weight: 800;
+    }
+
+    ul {
+      margin: 4px 0 8px 15px;
+      padding: 0 0 0 10px;
+    }
+
+    li {
+      margin: 1px 0;
+      padding-left: 2px;
+    }
+
+    .skills,
+    .education,
+    .awards {
+      margin-top: 2px;
+    }
+
+    .skills ul,
+    .education ul,
+    .awards ul {
+      margin-top: 2px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1 class="name">ABHAY KUMAR JAIN</h1>
+        <div class="tagline"><span class="triangle"></span><span>Assistant Brand Marketing Manager - Unilever</span></div>
+        <div class="tagline"><span class="triangle"></span><span>Ex Bain, Nestle R&amp;D</span></div>
+      </div>
+      <div class="contact">
+        <div><span class="label">P</span> +91-7738605932</div>
+        <div><span class="label">E</span> abhayakj98@gmail.com</div>
+        <div><span class="label">in</span> www.linkedin.com/in/-abhaykumarjain/</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="section">
+        <div class="section-title">Summary</div>
+        <div class="section-rule"></div>
+        <p class="summary">
+          Consumer-insights-driven brand marketer currently leading growth for the <strong>Rs. 1,600 Cr</strong> Comfort Fabric Conditioner business at Hindustan Unilever. Experience across premium positioning, large-scale experiential activations, integrated media / PR / social storytelling, and cross-channel demand generation. Delivered lifestyle-led partnerships such as Lakme Fashion Week, managed 5 agencies across content, PR, and media, and generated <strong>27M organic views in 6 days</strong> while driving <strong>27% value growth</strong>. Strong track record in brand strategy, media planning, consumer engagement, and cross-functional execution across sales, finance, supply chain, and agency partners.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Experience</div>
+        <div class="section-rule"></div>
+
+        <div class="role-bar">
+          <div>Assistant Brand Marketing Manager, Comfort, Hindustan Unilever Ltd (HUL)</div>
+          <div>Jul'24 - Present</div>
+        </div>
+        <div class="subhead">Brand Building, Experiential Activations &amp; Integrated Campaigns | 27% Value Growth YoY</div>
+        <ul>
+          <li>Led lifestyle-led brand transformation for Comfort through Lakme Fashion Week, shifting the brand identity from functional laundry to a more premium lifestyle proposition.</li>
+          <li>Managed 5 agencies across digital content, artist / PR management, and media planning; delivered 128 reels and generated 27M organic views in 6 days.</li>
+          <li>Built integrated campaigns across ATL, BTL, digital, PR, and social touchpoints, increasing total awareness by 1600 bps in East-West India and Top-of-Mind awareness by 800 bps in South.</li>
+          <li>Planned and optimized a 100 Cr annual media plan across TV, movies, fragrant newspaper, and digital channels to grow reach and salience.</li>
+          <li>Designed awareness and demand-generation programs across PMax, CPAS, sampling, and regional campaigns; evaluated ROI and consumer response to optimize performance.</li>
+          <li>Worked with regional and cross-functional teams to execute in-market campaigns across South and Non-South India and improve recall and growth impact.</li>
+          <li>Developed platform-specific growth playbooks for 4 e-commerce / q-commerce platforms and drove 103% growth on q-commerce through on-platform and off-platform marketing.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Senior Product Management &amp; Analytics Executive, e-Com, Hindustan Unilever Ltd (HUL)</div>
+          <div>Apr'22 - Jun'24</div>
+        </div>
+        <div class="subhead">Analytics, Execution Excellence &amp; Cross-Functional Delivery</div>
+        <ul>
+          <li>Partnered with cross-functional teams to launch a webapp that saved the work of 3 FTEs and reduced launch turnaround time by 10 days.</li>
+          <li>Improved data accuracy to 98% and accelerated decision-making across availability, pricing, and discovery on 9 e-commerce platforms.</li>
+          <li>Combined analytics and business actionability to improve availability, paid share of voice, and market share across digital commerce channels.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Analyst, Bain &amp; Company (BCN)</div>
+          <div>Mar'21 - Apr'22</div>
+        </div>
+        <ul>
+          <li>Built consumer and market-entry strategies for FMCGs, airlines, government, and startup clients by synthesizing research, analytics, and market insight for C-suite stakeholders.</li>
+          <li>Created 15+ Excel models and used consumer-journey analysis tools to recommend actions across omni-channel shopping behavior.</li>
+          <li>Awarded Best Analyst among a 53-member team; earned appreciation from C-suite leaders across 5 companies.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Technical Process Intern, Nestle R&amp;D</div>
+          <div>Jan'19 - Jun'19</div>
+        </div>
+        <ul>
+          <li>Delivered a Rs. 12M CAPEX saving and reduced utility cost by 9.2% for Maggi in Malaysia through structured experimentation and process optimization.</li>
+        </ul>
+      </section>
+
+      <section class="section skills">
+        <div class="section-title">Relevant Skills</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>Brand Strategy &amp; Positioning, Experiential Marketing &amp; Partnerships, Integrated Marketing: Media, PR, Social, Content</li>
+          <li>Agency &amp; Vendor Management, Consumer Insights &amp; Brand Tracking, Media Planning &amp; Budget Management</li>
+          <li>Demand Generation &amp; Performance Marketing, Cross-Functional Stakeholder Management</li>
+          <li>Analytics: Advanced Excel, Statistics, Mixpanel, Web Engage</li>
+        </ul>
+      </section>
+
+      <section class="section education">
+        <div class="section-title">Education</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>Punjab Engineering College (PEC), B.E. in Mechanical Engineering | 2016 - 2020 | 8.5/10</li>
+          <li>AISSCE (CBSE) | 2016 | 95%; AISSE (CBSE) | 2014 | GPA 10/10</li>
+        </ul>
+      </section>
+
+      <section class="section awards">
+        <div class="section-title">Awards &amp; Leadership</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>Nominated for the Trailblazer award by the CEO at HUL; awarded 9 times in 2 years for impact created.</li>
+          <li>Best Analyst award at Bain &amp; Company among a 53-member team.</li>
+          <li>Sports Captain for college cricket and badminton teams; active in debating, public speaking, and NGO initiatives.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

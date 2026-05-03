@@ -14,15 +14,26 @@ const HARD_EXPIRED_PATTERNS = [
   /closed on (?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\w*\s+\d{1,2}/i,
   /diese stelle (ist )?(nicht mehr|bereits) besetzt/i,
   /offre (expirée|n'est plus disponible)/i,
+  /posting.*expired/i,
+  /sorry, this job is closed/i,
+  /thank you for your interest.*no longer/i,
+  /we are no longer accepting/i,
+  /the job you were looking for is no longer/i,
+  /this role is now filled/i,
+  /error 404/i,
 ];
 
 const LISTING_PAGE_PATTERNS = [
   /\d+\s+jobs?\s+found/i,
   /search for jobs page is loaded/i,
+  /view all jobs/i,
+  /browse jobs/i,
 ];
 
 const EXPIRED_URL_PATTERNS = [
   /[?&]error=true/i,
+  /careers\/?$/, // Redirect to home/root careers page
+  /\/jobs\/?$/,
 ];
 
 const APPLY_PATTERNS = [

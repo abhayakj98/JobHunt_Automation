@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Arial', 'Helvetica', sans-serif; font-size: 10px; line-height: 1.25; color: #000; background: #fff; }
+  .page { width: 100%; max-width: 100%; margin: 0 auto; padding: 0; position: relative; }
+
+  /* === HEADER === */
+  .header {
+    background-color: #2e75b6;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .header-titles {
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .header-right {
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-item a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
+
+  /* === SECTIONS === */
+  .section {
+    margin: 12px 25px 0 25px;
+  }
+  .section-title {
+    font-size: 11.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    border-bottom: 2px solid #c55a11;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  /* === CONTENT === */
+  .summary-text {
+    font-size: 10px;
+    text-align: justify;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .summary-text strong { font-weight: bold; }
+
+  /* === EXPERIENCE === */
+  .exp-bar {
+    background-color: #deeaf6;
+    padding: 3px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10.5px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .exp-sub-header {
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 0 8px;
+  }
+  .exp-bullets {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .exp-bullets li {
+    font-size: 10px;
+    margin-bottom: 2px;
+    list-style-type: disc;
+    line-height: 1.3;
+  }
+  .exp-bullets li strong { font-weight: bold; }
+
+  /* === INFO LISTS (SKILLS, EDU, AWARDS) === */
+  .info-list {
+    padding-left: 15px;
+    margin-bottom: 10px;
+  }
+  .info-list li {
+    font-size: 10px;
+    margin-bottom: 3px;
+    list-style-type: disc;
+    line-height: 1.3;
+  }
+  .info-list li strong { font-weight: bold; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>ABHAY KUMAR JAIN</h1>
+      <div class="header-titles">
+        <div>Brand Marketing Manager- Unilever</div>
+        <div style="font-weight: normal; font-size: 11px; margin-top: 4px;">Ex Nestle, Bain &amp; Co. | Mumbai, India</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="contact-item">
+        <span>+91-9411486033</span>
+      </div>
+      <div class="contact-item">
+        <span>abhayakj98@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span><a href="https://linkedin.com/in/abhaykrjain">linkedin.com/in/abhaykrjain</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">SUMMARY</div>
+    <div class="summary-text">
+      Brand Marketer with 6 years of experience across Unilever, Nestle &amp; Bain, currently leading ₹16B brand at Unilever &amp; growing it by 17% by translating consumer research &amp; competitive insight into brand proposition &amp; GTM strategy. Skilled in designing awareness-to-trial campaigns through multi-channel marketing campaigns, impact media, instore merchandising &amp; digital campaigns on-platform &amp; off-platform, generating new trials, improving retention &amp; increasing customer lifetime value. Experienced in managing lifestyle led partnership strategy, A/B experimentation &amp; designing experiential marketing activations. Building brand by using metrics to improve awareness, conversion &amp; shares while managing cross-functional stakeholders of media, content, sales, supply chain &amp; vendor management.
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">WORK EXPERIENCE</div>
+    
+    <div class="exp-bar">
+      <span>UNILEVER (HUL)</span>
+      <span>Apr 2022 - Present</span>
+    </div>
+
+    <div class="exp-sub-header">Brand Marketing Manager - Comfort (Jun 2024 - Present)</div>
+    <ul class="exp-bullets">
+      <li><strong>Market Development:</strong> 17% growth, 600bps pen gain; Managed ₹1B media budget for ₹16B brand P&amp;L.</li>
+      <li><strong>Spearheaded</strong> product marketing strategy for 3 SKU launches, translating cohort analysis into proposition; ran A/B experimentation across partner channels generating ₹120M incremental revenue in 3 months.</li>
+      <li><strong>Orchestrated</strong> social-first creative content strategy with 4 agencies, generating 27M organic views in 6 days and increasing branded search by 7%.</li>
+      <li><strong>Increased</strong> 16% brand awareness in 4 months against ₹20M media budget through integrated ATL, BTL &amp; digital marketing campaigns.</li>
+      <li><strong>Uplifted</strong> 8% Top of Mind (TOM) awareness with hyperlocal sensory led activations &amp; impact measurement in-store.</li>
+      <li><strong>Reached</strong> 52M households via fragrant newspaper, movies, and impact media, leveraging cues to drive brand recall.</li>
+      <li><strong>Established</strong> media investment &amp; category management principles on e-Com, improving ROI from 1.2 to 1.35.</li>
+      <li><strong>Scaled</strong> e-Com revenue from ₹350M to ₹720M by managing promotional calendar &amp; building full-funnel product marketing stack including CPAS and CRM driven retention.</li>
+    </ul>
+
+    <div class="exp-sub-header">Senior Growth Analytics &amp; Product Management Executive, e-Com (Apr 2022 - Jun 2024)</div>
+    <ul class="exp-bullets">
+      <li><strong>e-Com execution’s foundation setup:</strong> Built e-Com data infrastructure &amp; execution playbook for 9 apps.</li>
+      <li><strong>Designed</strong> Unilever’s e-Com execution framework from scratch across Analytics, Product &amp; Automation scaling to ₹70B.</li>
+      <li><strong>Developed</strong> an enterprise webapp to save 3 FTE-equivalent manual work &amp; reduce launch TAT by 10 days; integrated AI to increase CTR &amp; conversion by 3%.</li>
+      <li><strong>Engineered</strong> real-time data monitoring infrastructure to 98% accuracy &amp; automated reporting enabling data-driven actions.</li>
+      <li><strong>Improved</strong> 8% availability, 12% paid SOV &amp; 700 bps market share within 3 months through cross-functional team collaborations.</li>
+    </ul>
+
+    <div class="exp-bar">
+      <span>BAIN &amp; COMPANY (BCN)</span>
+      <span>Mar 2021 – Apr 2022</span>
+    </div>
+    <div class="exp-sub-header">Growth &amp; Strategy Analyst</div>
+    <ul class="exp-bullets">
+      <li><strong>Consumer &amp; Market Strategy Consulting:</strong> Go-To-Market, Consumer Insight &amp; Whitespace Across Industries.</li>
+      <li><strong>Delivered</strong> market entry &amp; whitespace strategies for Airlines, FMCGs, Government &amp; Startup clients, unlocking $1.8B revenue opportunities.</li>
+      <li><strong>Applied</strong> behavioral marketing data models for product strategy to identify Consumer journey friction points improving retention by 18%.</li>
+      <li><strong>Awarded</strong> Best Analyst amongst a 53-member team with highest rated NPS score of 93% across 15 case teams.</li>
+    </ul>
+
+    <div class="exp-bar">
+      <span>NESTLE R&amp;D</span>
+      <span>Jan 2019 – Mar 2021</span>
+    </div>
+    <div class="exp-sub-header">Data Analysis Specialist + Technical Process Intern (Internship: Jan 2019 - Jun 2019 | Full Time: Jun 2020 - Mar 2021)</div>
+    <ul class="exp-bullets">
+      <li><strong>Factory Analytics, Waste Reduction &amp; Process Optimization:</strong> Waste- ₹100M Savings | CAPEX- ₹12M Savings.</li>
+      <li><strong>Developed</strong> multi-variate regression model across 3 production lines to cut Maggi Noodle waste by 80bps saving ₹100M annually.</li>
+      <li><strong>Delivered</strong> ₹12M CAPEX savings &amp; reduced utility cost by 9.2% for Maggi, Malaysia through structured design of experiment.</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">RELEVANT SKILLS</div>
+    <ul class="info-list">
+      <li><strong>Brand Building:</strong> Full Funnel Brand Strategy, Relaunch &amp; Innovation Funnel, Insight-to-Execution, Media Planning, Portfolio Management.</li>
+      <li><strong>Growth &amp; Commerce:</strong> QCom Scaling, Purchase Funnel Optimisation, Digital Content Creation, PR Management, Performance Marketing.</li>
+      <li><strong>Consumer &amp; Culture:</strong> Consumer Research, Agency &amp; Vendor Management, Consumer Journey Mapping, Competitive Analysis.</li>
+      <li><strong>Data Analytics:</strong> Advanced Excel, SQL, Statistics, Web Engage, Mixpanel, Power BI, CAPLENA AI Tools, Google Analytics.</li>
+    </ul>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">EDUCATION</div>
+    <ul class="info-list">
+      <li><strong>2016-2020:</strong> Punjab Engineering College (PEC), Bachelor’s in Technology (8.5/10)</li>
+      <li><strong>2016:</strong> AISSCE (CBSE)- 95%; <strong>2014:</strong> AISSE (CBSE)- GPA: 10/10</li>
+    </ul>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="section">
+    <div class="section-title">AWARDS &amp; LEADERSHIP</div>
+    <ul class="info-list">
+      <li><strong>HUL:</strong> Won 2 AI Disruptor awards at Economic Times AI Summit; Won Best Experiential Marketing Activation in Homecare.</li>
+      <li><strong>HUL:</strong> Winner- Marketing Case Study across 120 Sales &amp; Marketing teams; Nominated for CEOs Award &amp; fast-track manager training.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

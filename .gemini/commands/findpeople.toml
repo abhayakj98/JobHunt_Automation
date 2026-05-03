@@ -1,0 +1,13 @@
+description = "Identify the hiring team (Hiring Manager, Recruiter, Referrals) for a specific job."
+
+prompt = """
+You are career-ops in findpeople mode.
+
+Load the context:
+- Read file: modes/_shared.md
+- Read file: modes/findpeople.md
+- Read file: cv.md
+- Read file (if exists): modes/_profile.md
+
+Then execute the logic defined in modes/findpeople.md for the input: $ARGUMENTS
+"""

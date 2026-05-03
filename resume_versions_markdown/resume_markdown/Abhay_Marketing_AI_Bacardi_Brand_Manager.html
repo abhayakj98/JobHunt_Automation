@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhay Kumar Jain - Bacardi Brand Manager</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --page-width: 794px;
+      --page-height: 1123px;
+      --header-blue-1: #1e95d0;
+      --header-blue-2: #1276b5;
+      --accent: #b85b14;
+      --text: #111111;
+      --bar: #dfe8f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f5f7;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+    }
+
+    .page {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      margin: 0 auto;
+      background: #ffffff;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.95fr;
+      gap: 20px;
+      padding: 18px 34px 18px 36px;
+      color: #ffffff;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,0.05) 0,
+          rgba(255,255,255,0.05) 2px,
+          rgba(255,255,255,0.01) 2px,
+          rgba(255,255,255,0.01) 6px
+        ),
+        linear-gradient(90deg, var(--header-blue-1), var(--header-blue-2));
+    }
+
+    .name {
+      margin: 0 0 8px 0;
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      font-weight: 800;
+    }
+
+    .tagline {
+      margin: 6px 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .contact {
+      align-self: center;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,0.75);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .contact div {
+      white-space: nowrap;
+    }
+
+    .contact .label {
+      display: inline-block;
+      width: 20px;
+      font-weight: 800;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 14px 36px 26px 36px;
+      font-size: 9.7px;
+      line-height: 1.31;
+    }
+
+    .section {
+      margin-top: 8px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .section-rule {
+      height: 2px;
+      background: var(--accent);
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .summary {
+      margin: 0 0 10px 0;
+      font-size: 9.7px;
+    }
+
+    .company-bar,
+    .role-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      background: var(--bar);
+      padding: 3px 4px;
+      margin: 6px 0 4px 0;
+      font-weight: 800;
+    }
+
+    .company-bar {
+      font-size: 10px;
+    }
+
+    .role-bar {
+      font-size: 9.8px;
+      margin-top: 5px;
+    }
+
+    .company-subhead,
+    .subhead {
+      margin: 4px 0 3px 0;
+      font-weight: 800;
+    }
+
+    .company-subhead {
+      font-size: 9.4px;
+    }
+
+    .subhead {
+      font-size: 9.3px;
+    }
+
+    ul {
+      margin: 3px 0 7px 14px;
+      padding: 0 0 0 10px;
+    }
+
+    li {
+      margin: 1px 0;
+      padding-left: 2px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1 class="name">ABHAY KUMAR JAIN</h1>
+        <div class="tagline"><span class="triangle"></span><span>Assistant Brand Marketing Manager - Unilever</span></div>
+        <div class="tagline"><span class="triangle"></span><span>Ex Bain, Nestle R&amp;D</span></div>
+      </div>
+      <div class="contact">
+        <div><span class="label">P</span> +91-9411486033</div>
+        <div><span class="label">E</span> abhayakj98@gmail.com</div>
+        <div><span class="label">in</span> www.linkedin.com/in/-abhaykumarjain/</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="section">
+        <div class="section-title">Summary</div>
+        <div class="section-rule"></div>
+        <p class="summary">
+          Data-oriented, insight-driven marketing professional with <strong>5+ years of experience</strong> across Hindustan Unilever, Bain, and Nestle R&amp;D, including <strong>4 years of continuous growth at Hindustan Unilever</strong> currently driving the <strong>Rs. 1,600 Cr</strong> Comfort brand. Experienced in premium positioning, large scale experiential activations, integrated media / PR / social storytelling, and cross-channel demand generation. Proven track record of creating awareness, gaining penetration &amp; premiumising consumers for the brand through culture-led partnerships, earned-owned-paid storytelling, media strategy, and consumer-journey-led demand generation. Led lifestyle-led partnerships such as Lakme Fashion Week, managed multi-agency execution across content, PR, and media, generated <strong>27M organic views in 6 days</strong>, and delivered <strong>27% growth</strong> while partnering closely with sales, finance, supply chain, R&amp;D, and agency teams.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Experience</div>
+        <div class="section-rule"></div>
+
+        <div class="company-bar">
+          <div>HINDUSTAN UNILEVER LTD (HUL)</div>
+          <div>Apr'22 - Present</div>
+        </div>
+        <div class="company-subhead">4 Years of Continuous Growth Across Brand Marketing, Product Management, Analytics &amp; Automation</div>
+
+        <div class="role-bar">
+          <div>Assistant Brand Marketing Manager, Comfort</div>
+          <div>Jun'24 - Present</div>
+        </div>
+        <div class="subhead">27% Growth | 1,600 bps Awareness Lift | 100 Cr Media Strategy Ownership</div>
+        <ul>
+          <li>Led go-to-market strategy to premiumise Comfort through a new product-range launch at Lakme Fashion Week, repositioning the brand from functional laundry to a more lifestyle-led proposition.</li>
+          <li>Orchestrated 5 agency partners across content, PR, talent, and media; delivered 128 reels and generated 27M organic views in 6 days.</li>
+          <li>Built integrated earned-owned-paid campaigns across ATL, BTL, digital, PR, and social, lifting awareness by 1,600 bps in East-West India and top-of-mind awareness by 800 bps in South.</li>
+          <li>Planned and optimized a 100 Cr media investment strategy across TV, movies, fragrant newspaper, and digital channels to improve brand salience and reach.</li>
+          <li>Created social-first demand generation assets and tested digital creatives to improve conversions, trials, and campaign effectiveness.</li>
+          <li>Developed platform x category growth playbooks across 5 e-commerce and q-commerce apps based on consumer journey insights, improving investment quality and channel prioritization.</li>
+          <li>Partnered with regional sales and commercial teams to localize execution across South and Non-South markets and improve in-market campaign effectiveness.</li>
+          <li>Optimized on-platform and off-platform performance marketing through CPAS, PMax, and sampling, driving 103% q-commerce growth.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Senior Product Management, Analytics &amp; Automation Executive - eCom</div>
+          <div>Apr'22 - Jun'24</div>
+        </div>
+        <div class="subhead">450 bps Conversion Improvement | 1,200 bps Paid SOV Gain | 110 bps Market Share Growth</div>
+        <ul>
+          <li>Led shopper-engagement and e-commerce execution strategy across product management, analytics, and automation in partnership with cross-functional teams across 9 platforms.</li>
+          <li>Built and launched a shopper-engagement webapp, saving the work of 3 FTEs and reducing launch turnaround time by 10 days.</li>
+          <li>Improved data accuracy to 98%, enabling actions that increased availability by 750 bps, paid share of voice by 1,200 bps, and market share by 110 bps.</li>
+          <li>Automated availability, pricing, and discovery workflows to accelerate in-market actionability and improve conversion by 450 bps.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>BAIN &amp; COMPANY (BCN) | Analyst</div>
+          <div>Mar'21 - Apr'22</div>
+        </div>
+        <div class="subhead">C-Suite Strategy Across 5 Companies | Best Analyst Among 53 Team Members</div>
+        <ul>
+          <li>Built market-entry and whitespace strategies for airlines, FMCGs, government, and startup clients by partnering with C-suite stakeholders.</li>
+          <li>Created 15+ Excel models and used AI tools such as CAPLENA to improve consumer-journey understanding across omni-channel shopping behavior.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>NESTLE R&amp;D | Technical Process Intern</div>
+          <div>Jan'19 - Jun'19</div>
+        </div>
+        <div class="subhead">Rs. 12M CAPEX Savings | 9.2% Utility Cost Reduction</div>
+        <ul>
+          <li>Delivered Rs. 12M CAPEX savings and reduced utility cost by 9.2% for Maggi, Malaysia through structured experimentation and process optimization.</li>
+          <li>Developed scalable process improvements that elevated product quality without impacting sensory performance or lifecycle.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Relevant Skills</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>Brand Strategy &amp; Premium Positioning, Experiential Marketing &amp; Lifestyle Partnerships</li>
+          <li>Sponsorships, Partnerships &amp; Agency Management, Integrated Media / PR / Social Storytelling</li>
+          <li>Consumer Insights &amp; Demand Generation, Media Planning &amp; Budget Management</li>
+          <li>Performance Marketing &amp; Funnel Optimization, Cross-Functional Stakeholder Management</li>
+          <li>Advanced Excel, Statistics, Web Engage, Mixpanel, Power BI</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Education</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>Punjab Engineering College (PEC), Bachelor's in Mechanical Engineering | 2016 - 2020 | 8.5/10</li>
+          <li>AISSCE (CBSE) | 2016 | 95%; AISSE (CBSE) | 2014 | GPA 10/10</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Awards &amp; Leadership</div>
+        <div class="section-rule"></div>
+        <ul>
+          <li>HUL: Won 2 AI Disruptor awards at Economic Times AI Summit; Best Experiential Marketing Activation in Homecare.</li>
+          <li>HUL: Nominated for the CEO's Award, early manager training, and winner of a marketing case study across 120 teams.</li>
+          <li>Bain &amp; Company: Best Analyst Award among a 53-member team; earned 93% NPS with appreciation from C-suite leaders across 5 companies.</li>
+          <li>Sports Captain: College cricket and badminton teams, North Zone.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

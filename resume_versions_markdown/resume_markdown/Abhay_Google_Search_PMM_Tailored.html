@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhay Kumar Jain - Google Search PMM Tailored Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --page-width: 794px;
+      --page-height: 1123px;
+      --header-blue-1: #1e95d0;
+      --header-blue-2: #1276b5;
+      --accent: #b85b14;
+      --text: #111111;
+      --bar: #d9e5f2;
+      --muted: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f5f7;
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      margin: 0 auto;
+      background: #ffffff;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.92fr;
+      gap: 20px;
+      padding: 17px 32px 16px 34px;
+      color: #ffffff;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,0.05) 0,
+          rgba(255,255,255,0.05) 2px,
+          rgba(255,255,255,0.01) 2px,
+          rgba(255,255,255,0.01) 6px
+        ),
+        linear-gradient(90deg, var(--header-blue-1), var(--header-blue-2));
+    }
+
+    .name {
+      margin: 0 0 7px 0;
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: 1.15px;
+      font-weight: 800;
+    }
+
+    .tagline {
+      margin: 6px 0;
+      font-size: 12.1px;
+      font-weight: 700;
+      letter-spacing: 0.68px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .contact {
+      align-self: center;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,0.78);
+      font-size: 11.3px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      margin: 4px 0;
+    }
+
+    .icon-badge {
+      width: 18px;
+      height: 18px;
+      border: 1.4px solid rgba(255,255,255,0.88);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 18px;
+    }
+
+    .icon-badge svg {
+      width: 10px;
+      height: 10px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-badge.linkedin {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .content {
+      padding: 12px 32px 18px 32px;
+      font-size: 9.55px;
+      line-height: 1.31;
+    }
+
+    .section {
+      margin-top: 8px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin: 0 0 6px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .section-rule {
+      height: 2px;
+      background: var(--accent);
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .summary {
+      margin: 0 0 8px 0;
+      font-size: 9.8px;
+      line-height: 1.35;
+    }
+
+    .company-bar,
+    .role-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      background: var(--bar);
+      padding: 4px 6px;
+      margin: 6px 0 4px 0;
+      font-weight: 800;
+    }
+
+    .company-bar {
+      font-size: 10.2px;
+    }
+
+    .role-bar {
+      font-size: 9.95px;
+      margin-top: 5px;
+    }
+
+    .subhead {
+      margin: 4px 0 3px 0;
+      font-size: 9.25px;
+      line-height: 1.24;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 3px 0 7px 15px;
+      padding: 0 0 0 9px;
+    }
+
+    li {
+      margin: 1px 0;
+      padding-left: 1px;
+    }
+
+    .compact-list {
+      margin-top: 2px;
+    }
+
+    .compact-list li {
+      margin: 0 0 1px 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .mini-title {
+      margin: 0 0 4px 0;
+      font-size: 10.1px;
+      font-weight: 800;
+      letter-spacing: 0.35px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .plain {
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1 class="name">ABHAY KUMAR JAIN</h1>
+        <div class="tagline"><span class="triangle"></span><span>Data-Oriented, Insight-Driven Marketing Professional</span></div>
+        <div class="tagline"><span class="triangle"></span><span>Product Marketing | Growth Marketing &amp; GTM</span></div>
+      </div>
+      <div class="contact">
+        <div class="contact-item">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8 9.71a16 16 0 0 0 6.29 6.29l1.26-1.26a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span>+91-9411486033</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+          </span>
+          <span>abhayakj98@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon-badge linkedin">in</span>
+          <span>www.linkedin.com/in/-abhaykumarjain/</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="section">
+        <div class="section-heading">
+          <div class="section-title">Summary</div>
+        </div>
+        <div class="section-rule"></div>
+        <p class="summary">Data-oriented, insight-driven marketer with 6 years of experience across Hindustan Unilever, Bain, and Nestle R&amp;D. Built go-to-market plans, launch programs, growth experiments, and analytics-led execution for the Rs. 1,600 Cr Comfort business across digital commerce channels. Strong track record of turning consumer insight and cross-functional execution into product adoption, conversion growth, and measurable business outcomes.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div class="section-title">Experience</div>
+        </div>
+        <div class="section-rule"></div>
+
+        <div class="company-bar">
+          <div>Hindustan Unilever Ltd (HUL)</div>
+          <div>Apr'22 - Present</div>
+        </div>
+
+        <div class="role-bar">
+          <div>Assistant Brand Marketing Manager, Comfort</div>
+          <div>Jul'24 - Present</div>
+        </div>
+        <div class="subhead">Go-to-Market, Growth Marketing &amp; Brand Strategy | 27% Value Growth YoY</div>
+        <ul>
+          <li>Developed the GTM strategy for a premium range launch, repositioning Comfort through Lakme Fashion Week and integrated communication across PR, digital, and in-market activations.</li>
+          <li>Created social-first demand generation assets and ran A/B tests on digital creatives to improve conversions, trials, and campaign learning.</li>
+          <li>Launched 4 new packs and developed media assets for up-trading and upgrading consumers, supporting category margin improvement.</li>
+          <li>Built platform x category growth playbooks across 5 e-commerce and q-commerce apps using consumer journey insights to sharpen channel prioritization and investment decisions.</li>
+          <li>Optimized on-platform and off-platform growth marketing through CPAS, PMax, and sampling, driving 103% q-commerce growth.</li>
+          <li>Led cross-functional execution with media, content, sales, finance, supply chain, and regional teams to improve campaign effectiveness and market development.</li>
+          <li>Used marketing mix modelling and demand forecasting to improve product availability by 800 bps across platforms while managing a 100 Cr annual media plan.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Senior Product Management &amp; Analytics Executive, e-Com</div>
+          <div>Apr'22 - Jun'24</div>
+        </div>
+        <div class="subhead">Product Marketing Operations, Analytics &amp; Shopper Growth | Up to 450 bps Conversion Improvement</div>
+        <ul>
+          <li>Led shopper-engagement and e-commerce execution across 9 platforms by partnering with cross-functional teams across product management, analytics, and automation.</li>
+          <li>Built and launched a webapp to improve shopper engagement, saving the work of 3 FTEs and reducing launch turnaround time by 10 days.</li>
+          <li>Improved data accuracy to 98%, enabling actions that increased availability by 750 bps, paid share of voice by 1200 bps, and market share by 110 bps.</li>
+          <li>Automated workflows across availability, pricing, and discovery, accelerating decision-making and improving conversion by up to 450 bps.</li>
+          <li>Built reporting routines to support growth strategy, measurement, and faster cross-team actionability.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Bain &amp; Company (BCN) | Analyst</div>
+          <div>Mar'21 - Apr'22</div>
+        </div>
+        <div class="subhead">Consumer and Growth Strategy for C-Suite Stakeholders</div>
+        <ul class="compact-list">
+          <li>Built market-entry and whitespace strategies for FMCG, airline, government, and startup clients by synthesizing consumer research, analytics, and market insight for senior stakeholders.</li>
+          <li>Created 15+ Excel models and used AI/ML tools such as CAPLENA to sharpen consumer journey understanding and convert analysis into decision-ready recommendations.</li>
+        </ul>
+
+        <div class="role-bar">
+          <div>Nestle R&amp;D | Technical Process Intern</div>
+          <div>Jan'19 - Jun'19</div>
+        </div>
+        <div class="subhead">Experimentation and Process Optimization</div>
+        <ul class="compact-list">
+          <li>Delivered Rs. 12M CAPEX savings and reduced utility cost by 9.2% for Maggi, Malaysia through structured experimentation and optimization.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div class="section-title">Skills &amp; Credentials</div>
+        </div>
+        <div class="section-rule"></div>
+        <div class="two-col">
+          <div>
+            <p class="mini-title">Relevant Skills</p>
+            <ul class="compact-list">
+              <li>Product Marketing: Go-to-Market Strategy, Product Launches, Consumer Insights, Brand Strategy</li>
+              <li>Growth Marketing: Experimentation, A/B Testing, Conversion Optimization, Performance Marketing</li>
+              <li>Analytics: Marketing Mix Modelling, Measurement, Advanced Excel, Power BI, Mixpanel</li>
+              <li>Cross-Functional Leadership: Product, Sales, Media, Finance, Supply Chain, Agency Collaboration</li>
+              <li>AI and Tools: AI-assisted research and analysis, CAPLENA, automation-led workflow improvement</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mini-title">Education</p>
+            <p class="plain">Punjab Engineering College (PEC), B.E. in Mechanical Engineering | 2016 - 2020 | 8.5/10</p>
+            <p class="mini-title" style="margin-top: 10px;">Awards &amp; Leadership</p>
+            <ul class="compact-list">
+              <li>Won 2 AI Disruptor awards at the ET AI Summit; nominated for the CEO's Award and early manager training at HUL.</li>
+              <li>Won a marketing case competition across 120 teams from eCom, GT, MT, and Marketing at HUL.</li>
+              <li>Best Analyst Award at Bain &amp; Company among a 53-member team.</li>
+              <li>Sports Captain for college cricket and badminton teams.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

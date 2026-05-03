@@ -27,6 +27,7 @@ Available commands:
   /career-ops-tracker      → Application status overview
   /career-ops-apply        → Live application assistant
   /career-ops-scan         → Scan portals and discover new offers
+  /findpeople              → Identify the hiring team (HM, Recruiter, Referrals)
   /career-ops-batch        → Batch processing with parallel workers
   /career-ops-patterns     → Analyze rejection patterns
   /career-ops-followup     → Follow-up cadence tracker

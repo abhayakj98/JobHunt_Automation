@@ -120,17 +120,35 @@ async function fetchJson(url) {
   }
 }
 
-// ── Title filter ────────────────────────────────────────────────────
+// ── Title filter & Grading ──────────────────────────────────────────
 
-function buildTitleFilter(titleFilter) {
-  const positive = (titleFilter?.positive || []).map(k => k.toLowerCase());
-  const negative = (titleFilter?.negative || []).map(k => k.toLowerCase());
+function buildTitleFilterAndGrader(config) {
+  const filter = config.title_filter || {};
+  const positive = (filter.positive || []).map(k => k.toLowerCase());
+  const negative = (filter.negative || []).map(k => k.toLowerCase());
+  const seniority = (filter.seniority_boost || []).map(k => k.toLowerCase());
 
   return (title) => {
     const lower = title.toLowerCase();
+    
+    // 1. Check negative filters
+    if (negative.some(k => lower.includes(k))) return null;
+
+    // 2. Check positive filters
     const hasPositive = positive.length === 0 || positive.some(k => lower.includes(k));
-    const hasNegative = negative.some(k => lower.includes(k));
-    return hasPositive && !hasNegative;
+    if (!hasPositive) return null;
+
+    // 3. Simple heuristic grading
+    let grade = 'C';
+    const hasSeniority = seniority.some(k => lower.includes(k));
+    
+    // If it has multiple positive matches or seniority boost, it's a B or A
+    const positiveMatches = positive.filter(k => lower.includes(k)).length;
+    
+    if (hasSeniority && positiveMatches >= 2) grade = 'A';
+    else if (hasSeniority || positiveMatches >= 2) grade = 'B';
+    
+    return grade;
   };
 }
 
@@ -198,7 +216,7 @@ function appendToPipeline(offers) {
     const procIdx = text.indexOf('## Procesadas');
     const insertAt = procIdx === -1 ? text.length : procIdx;
     const block = `\n${marker}\n\n` + offers.map(o =>
-      `- [ ] ${o.url} | ${o.company} | ${o.title}`
+      `- [ ] ${o.url} | ${o.company} | ${o.title} | Grade: ${o.grade || 'C (Auto)'}`
     ).join('\n') + '\n\n';
     text = text.slice(0, insertAt) + block + text.slice(insertAt);
   } else {
@@ -208,7 +226,7 @@ function appendToPipeline(offers) {
     const insertAt = nextSection === -1 ? text.length : nextSection;
 
     const block = '\n' + offers.map(o =>
-      `- [ ] ${o.url} | ${o.company} | ${o.title}`
+      `- [ ] ${o.url} | ${o.company} | ${o.title} | Grade: ${o.grade || 'C (Auto)'}`
     ).join('\n') + '\n';
     text = text.slice(0, insertAt) + block + text.slice(insertAt);
   }
@@ -219,11 +237,11 @@ function appendToPipeline(offers) {
 function appendToScanHistory(offers, date) {
   // Ensure file + header exist
   if (!existsSync(SCAN_HISTORY_PATH)) {
-    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\n', 'utf-8');
+    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\tgrade\n', 'utf-8');
   }
 
   const lines = offers.map(o =>
-    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\tadded`
+    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\tadded\t${o.grade || 'C'}`
   ).join('\n') + '\n';
 
   appendFileSync(SCAN_HISTORY_PATH, lines, 'utf-8');
@@ -263,7 +281,7 @@ async function main() {
 
   const config = parseYaml(readFileSync(PORTALS_PATH, 'utf-8'));
   const companies = config.tracked_companies || [];
-  const titleFilter = buildTitleFilter(config.title_filter);
+  const grader = buildTitleFilterAndGrader(config);
 
   // 2. Filter to enabled companies with detectable APIs
   const targets = companies
@@ -297,7 +315,8 @@ async function main() {
       totalFound += jobs.length;
 
       for (const job of jobs) {
-        if (!titleFilter(job.title)) {
+        const grade = grader(job.title);
+        if (!grade) {
           totalFiltered++;
           continue;
         }
@@ -313,7 +332,7 @@ async function main() {
         // Mark as seen to avoid intra-scan dupes
         seenUrls.add(job.url);
         seenCompanyRoles.add(key);
-        newOffers.push({ ...job, source: `${type}-api` });
+        newOffers.push({ ...job, grade, source: `${type}-api` });
       }
     } catch (err) {
       errors.push({ company: company.name, error: err.message });
@@ -348,7 +367,7 @@ async function main() {
   if (newOffers.length > 0) {
     console.log('\nNew offers:');
     for (const o of newOffers) {
-      console.log(`  + ${o.company} | ${o.title} | ${o.location || 'N/A'}`);
+      console.log(`  + ${o.company} | ${o.title} | Grade: ${o.grade || 'C'} | ${o.location || 'N/A'}`);
     }
     if (dryRun) {
       console.log('\n(dry run — run without --dry-run to save results)');

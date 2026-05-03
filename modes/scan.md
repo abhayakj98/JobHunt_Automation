@@ -114,27 +114,74 @@ Los niveles son aditivos — se ejecutan todos, los resultados se mezclan y dedu
    - `applications.md` → empresa + rol normalizado ya evaluado
    - `pipeline.md` → URL exacta ya en pendientes o procesadas
 
-7.5. **Verificar liveness de resultados de WebSearch (Nivel 3)** — ANTES de añadir a pipeline:
+7.5. **Verificar liveness de TODOS los resultados** — ANTES de añadir a pipeline:
 
-   Los resultados de WebSearch pueden estar desactualizados (Google cachea resultados durante semanas o meses). Para evitar evaluar ofertas expiradas, verificar con Playwright cada URL nueva que provenga del Nivel 3. Los Niveles 1 y 2 son inherentemente en tiempo real y no requieren esta verificación.
+   **REGLA CRÍTICA: NINGUNA oferta entra en pipeline.md sin verificación de liveness.** Esto aplica a los 3 niveles — WebSearch (Nivel 3) puede estar cacheado, pero LinkedIn, iimjobs, Naukri y portales similares también publican ofertas expiradas sin dar de baja la URL.
 
-   Para cada URL nueva de Nivel 3 (secuencial — NUNCA Playwright en paralelo):
+   ### Método preferido: Playwright (cuando disponible)
+
+   Para cada URL nueva (secuencial — NUNCA Playwright en paralelo):
    a. `browser_navigate` a la URL
    b. `browser_snapshot` para leer el contenido
    c. Clasificar:
       - **Activa**: título del puesto visible + descripción del rol + control visible de Apply/Submit/Solicitar dentro del contenido principal. No contar texto genérico de header/navbar/footer.
       - **Expirada** (cualquiera de estas señales):
         - URL final contiene `?error=true` (Greenhouse redirige así cuando la oferta está cerrada)
-        - Página contiene: "job no longer available" / "no longer open" / "position has been filled" / "this job has expired" / "page not found"
-        - Solo navbar y footer visibles, sin contenido JD (contenido < ~300 chars)
+        - Página contiene: "job no longer available" / "no longer open" / "position has been filled" / "this job has expired" / "page not found" / "job is closed" / "no longer accepting applications"
+        - Solo navbar y footer visibles, sin contenido JD (contenido < ~500 chars de texto relevante)
    d. Si expirada: registrar en `scan-history.tsv` con status `skipped_expired` y descartar
    e. Si activa: continuar al paso 8
 
-   **No interrumpir el scan entero si una URL falla.** Si `browser_navigate` da error (timeout, 403, etc.), marcar como `skipped_expired` y continuar con la siguiente.
+   ### Método fallback: WebFetch (cuando Playwright NO está disponible)
 
-8. **Para cada oferta nueva verificada que pase filtros**:
-   a. Añadir a `pipeline.md` sección "Pendientes": `- [ ] {url} | {company} | {title}`
-   b. Registrar en `scan-history.tsv`: `{url}\t{date}\t{query_name}\t{title}\t{company}\tadded`
+   **Si Playwright no está disponible (chrome binary ausente, entorno headless sin browser), usar WebFetch como verificación obligatoria — no omitir este paso.**
+
+   Para cada URL nueva:
+   a. `WebFetch` de la URL
+   b. Analizar el contenido de la respuesta:
+      - **Activa**: respuesta contiene título del puesto + al menos un párrafo de descripción del rol + texto de aplicar/apply. Contenido total > 800 chars de texto relevante.
+      - **Expirada** (cualquiera de estas señales en el cuerpo de la respuesta):
+        - Texto contiene: "job no longer available" / "no longer open" / "position has been filled" / "this job has expired" / "page not found" / "job is closed" / "no longer accepting" / "404" como contenido principal
+        - URL redirige a la homepage o a una página de listado general (sin ID de oferta)
+        - Respuesta < 800 chars de texto (solo navbar/footer sin JD)
+      - **Inconcluso**: WebFetch devuelve error, timeout, o respuesta bloqueada (403, captcha, JS-only SPA sin contenido)
+   c. Si expirada: registrar con status `skipped_expired` y descartar
+   d. Si inconcluso: registrar con status `skipped_unverified` y descartar — NO añadir al pipeline sin verificación
+   e. Si activa: continuar al paso 8
+
+   **NUNCA añadir una oferta a pipeline.md con status "unconfirmed".** Si no se puede verificar, no entra.
+
+   **No interrumpir el scan entero si una URL falla.** Marcar como `skipped_expired` o `skipped_unverified` y continuar.
+
+7.6. **Grade all discovered offers (A-F)** — BEFORE adding to pipeline:
+
+   Para cada oferta que pase los filtros de liveness y título, asignar un grado basado en el fit con el `_profile.md` del candidato:
+
+   - **Grado A (Perfect Match)**:
+     - Rol: Arquetipo Primario (ej: AI Engineer, AI PM).
+     - Seniority: Match exacto con el nivel del candidato.
+     - Ubicación: Remote o ciudad preferida.
+     - Empresa: Tier 1 o empresa en `tracked_companies`.
+   - **Grado B (Strong Fit)**:
+     - Rol: Arquetipo Secundario.
+     - Seniority: Aceptable (ej: Mid-Senior para un target de Senior).
+     - Ubicación: País/zona horaria correcta.
+   - **Grado C (Adjacent/Stretch)**:
+     - Rol: Arquetipo Adyacente o rol técnico relacionado con IA.
+     - Seniority: Ligeramente por encima o por debajo.
+   - **Grado D (Low Interest)**:
+     - Rol: Poco relacionado con IA (sólo buzzwords).
+     - Empresa: Fuera de los sectores de interés.
+   - **Grado F (Discard)**:
+     - Roles Junior/Intern (si el candidato es Senior).
+     - Tecnologías en el filtro `negative`.
+     - Presencial en otro país.
+
+   **Nota:** Solo los grados A, B y C se añaden a `pipeline.md`. Los D y F se registran en `scan-history.tsv` como `skipped_low_fit` pero no entran al flujo de trabajo.
+
+8. **Para cada oferta nueva verificada que pase filtros y grado (A-C)**:
+   a. Añadir a `pipeline.md` sección "Pendientes": `- [ ] {url} | {company} | {title} | Grade: {A/B/C}`
+   b. Registrar en `scan-history.tsv`: `{url}\t{date}\t{query_name}\t{title}\t{company}\tadded\t{grade}`
 
 9. **Ofertas filtradas por título**: registrar en `scan-history.tsv` con status `skipped_title`
 10. **Ofertas duplicadas**: registrar con status `skipped_dup`
