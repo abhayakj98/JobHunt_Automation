@@ -81,7 +81,15 @@ async function main() {
   let urls;
   if (args[0] === '--file') {
     const text = await readFile(args[1], 'utf-8');
-    urls = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+    
+    // Auto-detect TSV by looking at the file extension or the first line
+    if (args[1].endsWith('.tsv')) {
+      // Skip header and take first column
+      urls = lines.slice(1).map(l => l.split('\t')[0].trim()).filter(Boolean);
+    } else {
+      urls = lines;
+    }
   } else {
     urls = args;
   }
